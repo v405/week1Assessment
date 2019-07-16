@@ -11,7 +11,13 @@ public class ArrayUtils {
      * Given an array of objects, named `objectArray`, and an object `objectToCount`, return the number of times the `objectToCount` appears in the `objectArray`
      */
     public static Integer getNumberOfOccurrences(Object[] objectArray, Object objectToCount) {
-        return null;
+        Integer count = 0;
+        for (int i = 0; i < objectArray.length; i++){
+            if(objectArray[i] == objectToCount){
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -21,7 +27,13 @@ public class ArrayUtils {
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
     public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
-        return null;
+        Object[] newArray = new Object[objectArray.length];
+        for (int i=0;i<objectArray.length;i++) {
+            if (objectArray[i] != objectToRemove) {
+                newArray[i] = objectArray[i];
+            }
+        }
+    return null;
     }
 
     /**
@@ -30,7 +42,14 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the most frequently occuring object in the array
      */
     public static Object getMostCommon(Object[] objectArray) {
-        return null;
+        Object mostCommon = null;
+        for (int i = 0; i < objectArray.length-1; i++){
+            if (getNumberOfOccurrences(objectArray,objectArray[i]) >
+                    getNumberOfOccurrences(objectArray,objectArray[i+1])){
+                mostCommon = objectArray[i];
+            }
+        }
+        return mostCommon;
     }
 
 
@@ -40,7 +59,14 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the least frequently occuring object in the array
      */
     public static Object getLeastCommon(Object[] objectArray) {
-        return null;
+        Object leastCommon = null;
+        for (int i = objectArray.length-1; i >= 1; i--){
+            if (getNumberOfOccurrences(objectArray,objectArray[i]) <
+                    getNumberOfOccurrences(objectArray,objectArray[i-1])){
+                leastCommon = objectArray[i];
+            }
+        }
+        return leastCommon;
     }
 
     /**
@@ -50,6 +76,15 @@ public class ArrayUtils {
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
     public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
-        return null;
+        Object[] newArray = new Object[objectArray.length + objectArrayToAdd.length];
+        for(int i = 0; i < objectArray.length;i++){
+            newArray[i] = objectArray[i];
+        }
+        int x = 0;
+        for (int i = 5; i < 12;i++){
+            newArray[i] = objectArrayToAdd[x];
+            x++;
+        }
+        return newArray;
     }
 }
